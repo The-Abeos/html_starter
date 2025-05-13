@@ -1,0 +1,156 @@
+/* ========== GLOBAL STYLES ========== */
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Base body styles */
+body {
+    color: #292929;  /* Dark gray text color */
+    line-height: 1.4;  /* Comfortable line spacing */
+    background-color: #fff;  /* White background */
+}
+
+/* ========== HEADER STYLES ========== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;  /* Responsive padding */
+    border-bottom: 1px solid rgba(0,0,0,0.1);  /* Light border */
+    position: fixed;  /* Sticky header */
+    width: 100%;
+    background-color: white;
+    top: 0;
+    z-index: 100;  /* Ensures header stays above other content */
+}
+
+/* Medium logo styling */
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #000;
+    font-family: "PT Serif", serif;  /* Special font for logo */
+}
+
+/* Navigation bar */
+nav {
+    display: flex;
+    gap: 25px;  /* Space between nav items */
+    align-items: center;
+}
+
+/* Navigation links */
+nav a {
+    text-decoration: none;
+    color: #292929;
+    font-size: 14px;
+    font-weight: 400;  /* Regular weight */
+}
+
+/* Special style for the Get Started button */
+.black-button {
+    background-color: #000;  /* Black background */
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;  /* Pill shape */
+    font-weight: 400;
+}
+
+/* ========== MAIN CONTENT STYLES ========== */
+.main-container {
+    display: flex;
+    margin-top: 120px;  /* Space for fixed header */
+    padding: 0 5%;  /* Responsive padding */
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Left column text content */
+.text-content {
+    flex: 1;  /* Takes available space */
+    max-width: 600px;  /* Limits width for readability */
+    text-align: left;
+    padding-right: 40px;  /* Space between columns */
+}
+
+/* Main heading styles */
+h1 {
+    font-size: 80px;
+    font-weight: 400;  /* Regular weight */
+    margin-bottom: 20px;
+    letter-spacing: -0.03em;  /* Slightly tighter spacing */
+    font-family: "PT Serif", serif;  /* Special font for heading */
+    line-height: 1;  /* Tight line spacing */
+}
+
+/* Makes each span in h1 appear on new line */
+h1 span {
+    display: block;
+}
+
+/* Special styling for the ampersand character */
+.ampersand {
+    font-style: italic;  /* Slanted ampersand */
+    font-weight: 400;
+    display: inline-block;
+    transform: translateY(1px);  /* Fine vertical adjustment */
+    padding: 0 2px;  /* Small horizontal spacing */
+}
+
+/* Subtitle text */
+.subtitle {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #292929;
+    font-weight: 300;  /* Light weight */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Call-to-action button */
+.cta-button {
+    background-color: #000;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 24px;  /* Pill shape */
+    text-decoration: none;
+    font-size: 18px;
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: 400;
+}
+
+/* ========== IMAGE CONTAINER STYLES ========== */
+.image-container {
+    flex: 1;  /* Takes available space */
+    max-width: 460px;  /* Limits image width */
+}
+
+.featured-image {
+    width: 100%;  /* Responsive width */
+    height: auto;  /* Maintains aspect ratio */
+    border-radius: 4px;  /* Slightly rounded corners */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);  /* Subtle shadow */
+}
+
+/* ========== FOOTER STYLES ========== */
+footer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;  /* Space between links */
+    padding: 40px 20px;
+    flex-wrap: wrap;  /* Allows links to wrap on small screens */
+    border-top: 1px solid rgba(0,0,0,0.1);  /* Light border */
+    margin-top: 60px;  /* Space above footer */
+}
+
+/* Footer links */
+footer a {
+    text-decoration: none;
+    color: #757575;  /* Medium gray color */
+    font-size: 14px;
+    font-weight: 300;  /* Light weight */
+}
