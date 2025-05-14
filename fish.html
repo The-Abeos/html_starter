@@ -357,8 +357,8 @@
         <div class="form-container">
             <div class="logo-section">
                 <a href="/" class="logo">
-                    <span class="logo-icon">☁️</span>
-                    <span>Airspace</span>
+                    <span class="logo-icon">☁</span>
+                    <span>AIRSPACE</span>
                 </a>
             </div>
 
@@ -370,11 +370,6 @@
             <!-- Sign Up Form -->
             <div id="signup-form">
                 <h2 class="form-title">Create Account</h2>
-                <div class="form-control">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" placeholder="Enter your username" required>
-                    <span class="error-message" id="username-error">Please enter a valid username</span>
-                </div>
                 <div class="form-control">
                     <label for="signup-email">Email Address</label>
                     <input type="email" id="signup-email" placeholder="you@example.com" required>
@@ -428,11 +423,6 @@
             <!-- Sign In Form -->
             <div id="signin-form" style="display: none;">
                 <h2 class="form-title">Welcome Back</h2>
-                <div class="form-control">
-                    <label for="signin-username">Username</label>
-                    <input type="text" id="signin-username" placeholder="Enter your username" required>
-                    <span class="error-message" id="signin-username-error">Please enter your username</span>
-                </div>
                 <div class="form-control">
                     <label for="signin-email">Email Address</label>
                     <input type="email" id="signin-email" placeholder="you@example.com" required>
@@ -512,13 +502,9 @@
             return re.test(email);
         }
 
-        function validateUsername(username) {
-            return username.length >= 3;
-        }
-
         function validatePassword(password) {
             // Minimum 8 chars, at least 1 letter, 1 number and 1 special char
-            const re = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+            const re = /^(?=.[A-Za-z])(?=.\d)(?=.[@$!%#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
             return re.test(password);
         }
 
@@ -536,24 +522,16 @@
 
         // Sign Up function
         function signUp() {
-            const username = document.getElementById('username').value.trim();
             const email = document.getElementById('signup-email').value.trim();
             const password = document.getElementById('signup-password').value;
             const confirmPassword = document.getElementById('confirm-password').value;
             
             // Reset error messages
-            document.getElementById('username-error').style.display = 'none';
             document.getElementById('email-error').style.display = 'none';
             document.getElementById('password-error').style.display = 'none';
             document.getElementById('confirm-error').style.display = 'none';
             
             let isValid = true;
-            
-            // Validate username
-            if (!validateUsername(username)) {
-                document.getElementById('username-error').style.display = 'block';
-                isValid = false;
-            }
             
             // Validate email
             if (!validateEmail(email)) {
@@ -584,7 +562,6 @@
             setTimeout(() => {
                 // In a real app, you would hash the password before storing
                 const userData = {
-                    username: username,
                     email: email,
                     password: password, // Note: In production, NEVER store plain text passwords
                     createdAt: new Date().toISOString()
@@ -601,7 +578,6 @@
                 signupBtn.innerHTML = 'Sign Up';
                 
                 // Clear form
-                document.getElementById('username').value = '';
                 document.getElementById('signup-email').value = '';
                 document.getElementById('signup-password').value = '';
                 document.getElementById('confirm-password').value = '';
@@ -610,21 +586,14 @@
 
         // Sign In function
         function signIn() {
-            const username = document.getElementById('signin-username').value.trim();
             const email = document.getElementById('signin-email').value.trim();
             const password = document.getElementById('signin-password').value;
             
             // Reset error messages
-            document.getElementById('signin-username-error').style.display = 'none';
             document.getElementById('signin-email-error').style.display = 'none';
             document.getElementById('signin-password-error').style.display = 'none';
             
             // Basic validation
-            if (!username) {
-                document.getElementById('signin-username-error').style.display = 'block';
-                return;
-            }
-            
             if (!email) {
                 document.getElementById('signin-email-error').style.display = 'block';
                 return;
@@ -644,12 +613,12 @@
             setTimeout(() => {
                 const userData = JSON.parse(localStorage.getItem("airspace_user"));
                 
-                if (userData && userData.email === email && userData.password === password && userData.username === username) {
+                if (userData && userData.email === email && userData.password === password) {
                     // Successful login - redirect to dashboard
                     window.location.href = "medium.html";
                 } else {
                     // Failed login
-                    alert("Invalid username, email or password. Please try again.");
+                    alert("Invalid email or password. Please try again.");
                     
                     // Reset button
                     signinBtn.classList.remove('btn-loading');
@@ -662,7 +631,7 @@
         document.querySelector('.forgot-password').addEventListener('click', function() {
             const email = prompt("Please enter your email address to reset your password:");
             if (email && validateEmail(email)) {
-                alert(`Password reset link has been sent to ${email}`);
+                alert(Password reset link has been sent to ${email});
             } else if (email) {
                 alert("Please enter a valid email address");
             }

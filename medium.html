@@ -1,53 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Basic meta tags for character set and responsive viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medium - Where good ideas find you</title>
-    
-    <!-- External CSS and Google Fonts -->
+    <title>Medium - Where Good Ideas Find You</title>
     <link rel="stylesheet" href="medium.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Loading PT Serif font from Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header section with logo and navigation -->
     <header>
         <div class="logo">Medium</div>
         <nav>
             <a href="#">Our story</a>
             <a href="#">Membership</a>
             <a href="#">Write</a>
-            <a href="#">Sign in</a>
+            <a href="#">Sign out</a>
             <a href="#" class="black-button">Get started</a>
         </nav>
     </header>
 
-    <!-- Main content container with two columns -->
     <div class="main-container">
-        <!-- Left column - Text content -->
         <div class="text-content">
-            <!-- Main heading with two lines -->
             <h1>
-                <span>Human</span>  <!-- First line -->
-                <span>stories <span class="ampersand">&</span> ideas</span>  <!-- Second line with special ampersand -->
+                <span>Human</span>  
+                <span>stories <span class="ampersand">&</span> ideas</span>
             </h1>
-            <!-- Subtitle paragraph -->
             <p class="subtitle">A place to read, write, and deepen your understanding</p>
-            <!-- Call-to-action button -->
             <a href="#" class="cta-button">Start reading</a>
         </div>
-        
-        <!-- Right column - Image -->
+
         <div class="image-container">
             <img src="GO.webp" alt="Featured content" class="featured-image">
         </div>
     </div>
 
-    <!-- Footer section with multiple links -->
     <footer>
         <a href="#">Help</a>
         <a href="#">Status</a>
@@ -60,5 +46,14 @@
         <a href="#">Terms</a>
         <a href="#">Text to speech</a>
     </footer>
+
+    <script>
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (!user) {
+            window.location.href = "signin.html";
+        } else {
+            document.write(`<p style="text-align: center; color: green;">Welcome, ${user.name || user.email || 'User'} (via ${user.provider})</p>`);
+        }
+    </script>
 </body>
 </html>
